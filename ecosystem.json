@@ -1,0 +1,27 @@
+{
+  "apps": [
+    {
+      "name": "Epicure",
+      "script": "./dist/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ],
+  "deploy": {
+    "staging": {
+      "key": "./Users/moveo/Documents",
+      "user": "ubuntu",
+      "host": ["URL OF YOUR ENVIRONMENT (START WITH EC2)"],
+      "ref": "origin/develop",
+      "repo": "THE SSH ADDRESS OF THE GITHUB REPO",
+      "path": "THE DESIRED LOCATION IN YOUR INSTANCE TO CLONE THE PROJECT (for ex., /home/ubuntu/Server-Project)",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "post-deploy": "mkdir -p logs && npm i && pm2 reload ecosystem.json --env staging",
+      "pre-deploy-local": "echo 'Deploying code to servers'",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    }
+  }
+}
