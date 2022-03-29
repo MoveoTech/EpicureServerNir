@@ -36,7 +36,7 @@ export const fetchChefOfTheWeek = async () => {
 
 export const updateChefOfTheWeek = async (chefOfTheWeekId, ChefId) => {
   console.log(chefOfTheWeekId);
-  console.log(ChefId);
+  console.log(ChefId.chefOfTheWeek);
   try {
     const chefOfTheWeek = await ChefOfTheWeek.findOneAndUpdate(
       { _id: chefOfTheWeekId },
