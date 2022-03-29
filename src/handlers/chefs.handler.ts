@@ -35,6 +35,8 @@ export const fetchChefOfTheWeek = async () => {
 };
 
 export const updateChefOfTheWeek = async (chefOfTheWeekId, ChefId) => {
+  console.log(chefOfTheWeekId);
+  console.log(ChefId);
   try {
     const chefOfTheWeek = await ChefOfTheWeek.findOneAndUpdate(
       { _id: chefOfTheWeekId },
@@ -60,6 +62,7 @@ export const fetchSpecificChef = async (id) => {
 };
 
 export const updateChefById = async (chefObj, chefId) => {
+  console.log(chefId);
   try {
     await Chef.findOneAndUpdate({ _id: chefId }, chefObj).exec();
   } catch (e) {
